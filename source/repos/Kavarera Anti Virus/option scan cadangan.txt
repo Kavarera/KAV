@@ -1,0 +1,171 @@
+ string lokasidirek;
+            string filenya;
+            if (DirCount == 3 && (drive2bool && drive1bool && drive3bool) == true)
+            {
+                
+                int nomordirek = 0;
+                int ndir = 2;
+            gantidriver:
+
+
+                lokasidirek = direk[nomordirek];
+
+
+
+
+                MessageBox.Show(lokasidirek);
+                string jumlahfile;
+
+
+
+
+                jumlahfile = Path.GetFileName(lokasidirek);
+
+
+                //foreach (int itungfile in Path.GetFileName(lokasidirek))
+                //{
+                //    filenya = jumlahfile;
+                //    filenya = GetMD5FromFile(jumlahfile);
+
+                //}
+
+                int dirss = 0;
+                lokasidirek = direk[dirss];
+
+                int hiddenfile = 0;
+
+
+
+
+                string[] files = Directory.GetFiles(lokasidirek);
+                string[] md5text = File.ReadAllLines("md5 encryptor.txt");
+                try
+                {
+                    int countfile = 0;
+                    //var dirs = Directory.GetDirectories(lokasidirek, "*", SearchOption.TopDirectoryOnly);
+                    foreach (string file in files)
+                    {
+                        dirss++;
+                        if (file.Contains(".sys"))
+                        {
+                            hiddenfile++;
+                        }
+                        else
+                        {
+                            string encfile = GetMD5FromFile(file);
+                            //MessageBox.Show(encfile + "\n" + file, virus.ToString());
+                            virus++;
+                            //MessageBox.Show(encfile, "virus detected:"+virus + 1.ToString());
+                        }
+                    }
+                    string esfcdd = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                    int countv;
+                    foreach (string esffile in Directory.GetFiles(esfcdd))
+                    {
+
+                        foreach (string md5tester in md5text)
+                        {
+
+                            string encesff = GetMD5FromFile(esffile);
+                            if (encesff.Contains(md5tester))
+                            {
+
+                                pathinfected[virus] = Path.GetFullPath(esffile);
+
+                                virus = virus + 1;
+                                MessageBox.Show(virus.ToString(), pathinfected[virus]);
+                                //MessageBox.Show("P1");
+                            }
+                            else
+                            {
+                                //MessageBox.Show(encesff, esffile);
+                                //MessageBox.Show("P11");
+                                break;
+                            }
+
+                        }
+                        //MessageBox.Show("P111");
+                    }
+                    if (virus == 0)
+                    {
+                        for (int a = 0; a <= 10; a++)
+                        {
+                            Scanscanbtn.Text = "CLEAN!";
+
+                        }
+                        Scanscanbtn.Text = "SCAN";
+
+
+                    }
+
+                    if (virus > 0)
+                    {
+
+
+                    }
+                    nomordirek = nomordirek + 1;
+                }
+
+                catch (Exception)
+                {
+                    //MessageBox.Show("Can't access the drive " + lokasidirek);
+                    nomordirek = nomordirek + 1;
+
+                    var esfd = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                    var esfcdd = Environment.GetFolderPath(Environment.SpecialFolder.CommonDesktopDirectory);
+
+                    foreach (int dir1 in esfd)
+                    {
+
+                        foreach (string esffile in Directory.GetFiles(esfd))
+                        {
+                            string esffileenc = GetMD5FromFile(esffile);
+
+                            foreach (string md5tester in md5text)
+                            {
+                                //MessageBox.Show(esffile + " " + esfd);
+
+                                if (esffileenc.Contains(md5tester))
+                                {
+
+                                    File.Delete(esffile);
+                                    //MessageBox.Show("virus ditemukan" + virus);
+                                    virus = virus + 1;
+
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+
+
+                        }
+
+
+
+                    }
+                    if (virus == 0)
+                    {
+
+                        Scanscanbtn.Location = new Point(332, 200);
+
+
+
+                    }
+
+                    if (virus > 0)
+                    {
+
+                    }
+                    nomordirek = nomordirek + 1;
+                    if (nomordirek <= 3)
+                    {
+                        goto gantidriver;
+                    }
+                }
+
+
+
+
+            }

@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kavarera Anti Virus", "Kavarera Anti Virus\Kavarera Anti Virus.csproj", "{50E6DDEF-0BDD-4C00-9473-9934C7784A43}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4E45B002-29E4-43BF-9000-611B412B9CBF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50E6DDEF-0BDD-4C00-9473-9934C7784A43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50E6DDEF-0BDD-4C00-9473-9934C7784A43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50E6DDEF-0BDD-4C00-9473-9934C7784A43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50E6DDEF-0BDD-4C00-9473-9934C7784A43}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A2F1CB38-14A0-477A-A025-A35C7287FBC6}
+	EndGlobalSection
+EndGlobal
